@@ -1,13 +1,13 @@
-# RnJesus
+# RNGesus
 ![](md_images/nugeticon.png)
 
-RnJesus is a small pseudo random drop generator.
+RNGesus is a small pseudo random drop generator.
 
 It allows you to define a pool of items (class instances), each with a given rarity and drop chance and then pick one at random.
 
 ## How does it work?
 
-RnJesus tries to pick an item from the pool with a rarity >= 1. If no drop was generated it will pick one item with rarity=0 at random, ignoring it's drop chance (Fallback).
+RNGesus tries to pick an item from the pool with a rarity >= 1. If no drop was generated it will pick one item with rarity=0 at random, ignoring it's drop chance (Fallback).
 
 Let's assume you have the following rarities[^1]:
 
@@ -17,7 +17,7 @@ Let's assume you have the following rarities[^1]:
 | Rare   | 1             |
 | Epic   | 2             |
 
-[^1]: RnJesus uses byte values for the rarity. The higher the number, the more rare the item. This way you can define up to 256 rarities 😲
+[^1]: RNGesus uses byte values for the rarity. The higher the number, the more rare the item. This way you can define up to 256 rarities 😲
 
 
 
@@ -32,7 +32,7 @@ For each rarity type there are X items, each with a specific drop chance:
 | Epic Sword | Epic   | 50          |
 | Epic Axe   | Epic   | 25          |
 
-RnJesus will now check the drops in the following order:
+RNGesus will now check the drops in the following order:
 
 1. Check if next drop should be Epic
 
@@ -42,7 +42,7 @@ RnJesus will now check the drops in the following order:
 
 4. If so, check each Rare item's drop chance against RNG => If lucky, return item
 
-5. No special drop done, so choose one Common item (fallback) and return it. RnJesus will not look at it's dropchance and relies purely on `System.Runtime.Random` 
+5. No special drop done, so choose one Common item (fallback) and return it. RNGesus will not look at it's dropchance and relies purely on `System.Runtime.Random` 
 
    
 
@@ -77,10 +77,10 @@ List<Item> items = new List<Item>()
 }
 ```
 
-Create an instance of RnJesus and assign the item pool:
+Create an instance of RNGesus and assign the item pool:
 
 ```csharp
-RnJesus<Item> rng = new(items, new Random());
+RNGesus<Item> rng = new(items, new Random());
 ```
 
 Drop a new item:
@@ -95,7 +95,7 @@ That's it 🙃 See the ConsoleTest Project in the repository for a more complete
 
 ## Luck
 
-The `RnJesus.Next()` method takes an optional `double` parameter called `luck`. It adds to each item's drop chance. This is an easy way to increase the chance of dropping items with a higher rarity:
+The `RNGesus.Next()` method takes an optional `double` parameter called `luck`. It adds to each item's drop chance. This is an easy way to increase the chance of dropping items with a higher rarity:
 
 ```csharp
 var droppedItem = rng.Next(10d);
