@@ -1,4 +1,6 @@
 # RnJesus
+![](md_images/nugeticon.png)
+
 RnJesus is a small pseudo random drop generator.
 
 It allows you to define a pool of items (class instances), each with a given rarity and drop chance and then pick one at random.
