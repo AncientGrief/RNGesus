@@ -1,4 +1,6 @@
 # RNGesus
+[![Nuget](https://img.shields.io/nuget/v/RNGesus)](https://www.nuget.org/packages/RNGesus/)[![Nuget](https://img.shields.io/nuget/dt/RNGesus)](https://www.nuget.org/packages/RNGesus/)
+
 ![](md_images/nugeticon.png)
 
 RNGesus is a small pseudo random drop generator.
@@ -105,7 +107,7 @@ var droppedItem = rng.Next(10d);
 
 ## Example with100,000 drops
 
-The ConsoleTest programm generates 100,000 drops and these are the results of one run with the given rarity factors:
+The ConsoleTest programm generates 100,000 drops and these are the results of one run with the following rarity factors:
 
 - Common => 100
 - Uncommon => 80
