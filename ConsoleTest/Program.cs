@@ -6,29 +6,27 @@ Console.OutputEncoding = Encoding.UTF8;
 List<Item> items = Item.GetItems();
 RNGesus<Item> rng = new(items, new Random());
 
-Dictionary<Item, int> DropCounter = new ();
-DropCounter = items.ToDictionary(x => x, x => 0);
+Dictionary<Item, int> dropCounter = items.ToDictionary(x => x, x => 0);
 
 // ----- Change default drop rates ----
-
 rng.RarityFactors[(byte)ERarity.Uncommon] = 80;
 rng.RarityFactors[(byte)ERarity.Rare] = 35; 
 rng.RarityFactors[(byte)ERarity.Epic] = 10; 
 rng.RarityFactors[(byte)ERarity.Legendary] = 0.01;
 
-int DropAmount = 100000;
-for (int i = 0; i < DropAmount; i++)
+const int dropAmount = 100000;
+for (int i = 0; i < dropAmount; i++)
 {
-    DropCounter[rng.Next()]++;
+    dropCounter[rng.Next()]++;
 }
 
 //------ Output ----
 
-Console.WriteLine($"{DropAmount:n0} drops");
+Console.WriteLine($"{dropAmount:n0} drops");
 Console.WriteLine("-------------------------------------------");
 Console.WriteLine("|{0,-20}|{1,-20}|", "Rarity", "Drop Count");
 Console.WriteLine("-------------------------------------------");
-foreach (var item in DropCounter.GroupBy(x => x.Key.Rarity).ToDictionary(x => x.Key, x => x.Sum(x => x.Value)))
+foreach (var item in dropCounter.GroupBy(x => x.Key.Rarity).ToDictionary(x => x.Key, x => x.Sum(y => y.Value)))
 {
     Console.WriteLine("|{0,-20}|{1,-20:n0}|", Enum.Parse<ERarity>(item.Key.ToString()), item.Value);
 }
@@ -36,7 +34,7 @@ foreach (var item in DropCounter.GroupBy(x => x.Key.Rarity).ToDictionary(x => x.
 Console.WriteLine("-------------------------------------------");
 Console.WriteLine("|{0,-20}|{1,-20}|", "Item", "Drop Count");
 Console.WriteLine("-------------------------------------------");
-foreach (var item in DropCounter)
+foreach (var item in dropCounter)
 {
     Console.WriteLine("|{0,-20}|{1,-20:n0}|", item.Key.Name, item.Value);
 }

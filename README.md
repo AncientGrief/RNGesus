@@ -103,3 +103,45 @@ var droppedItem = rng.Next(10d);
 
 
 
+## Example with100,000 drops
+
+The ConsoleTest programm generates 100,000 drops and these are the results of one run with the given rarity factors:
+
+- Common => 100
+- Uncommon => 80
+- Rare => 35
+- Epic => 10
+- Legendary => 0.01
+
+| Rarity    | Drop Count |
+| --------- | ---------- |
+| Common    | 39781      |
+| Uncommon  | 47643      |
+| Rare      | 10179      |
+| Epic      | 2392       |
+| Legendary | 5          |
+
+
+
+| Item                | Drop Count          |
+|---------|---------|
+| Common I            | 8146               |
+| Common II           | 7879               |
+| Common III          | 7898               |
+| Common IV           | 7896               |
+| Common V            | 7962               |
+| Uncommon I          | 26410              |
+| Uncommon II         | 17618              |
+| Uncommon III        | 3615               |
+| Rare I              | 6329               |
+| Rare II             | 2932               |
+| Rare III            | 918                 |
+| Epic I              | 1456               |
+| Epic II             | 715                 |
+| Epic III            | 220                 |
+| Epic IV             | 1                   |
+| Legendary I         | 3                   |
+| Legendary II        | 2                   |
+| Legendary III       | 0                   |
+| Legendary IV        | 0                   |
+
