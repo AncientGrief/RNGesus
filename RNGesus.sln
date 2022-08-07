@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{80B2CA29-889E-4772-92F2-F9B06461CC79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNGesus", "RNGesus\RNGesus.csproj", "{CC3BD3C0-D681-4500-AE6F-C304A6260992}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80B2CA29-889E-4772-92F2-F9B06461CC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B2CA29-889E-4772-92F2-F9B06461CC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B2CA29-889E-4772-92F2-F9B06461CC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B2CA29-889E-4772-92F2-F9B06461CC79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3BD3C0-D681-4500-AE6F-C304A6260992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3BD3C0-D681-4500-AE6F-C304A6260992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3BD3C0-D681-4500-AE6F-C304A6260992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3BD3C0-D681-4500-AE6F-C304A6260992}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
