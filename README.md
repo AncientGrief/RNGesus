@@ -1,5 +1,5 @@
 # RNGesus
-[![Nuget](https://img.shields.io/nuget/v/RNGesus)](https://www.nuget.org/packages/RNGesus/)[![Nuget](https://img.shields.io/nuget/dt/RNGesus)](https://www.nuget.org/packages/RNGesus/)
+[![Nuget](https://img.shields.io/nuget/v/RNGesus)](https://www.nuget.org/packages/RNGesus/) [![Nuget](https://img.shields.io/nuget/dt/RNGesus)](https://www.nuget.org/packages/RNGesus/)
 
 ![](md_images/nugeticon.png)
 
