@@ -47,11 +47,14 @@ public class RNGesus<T> where T : IDroppable
     public T Next(double? luck = 0d)
     {
         //Try dropping a non common item. Rarity = 0 = 100d is common, so skip it
-        foreach (KeyValuePair<byte, double> rarity in RarityFactors.Where(x => x.Key < 100d).OrderBy(x => x.Key))
+        foreach (KeyValuePair<byte, double> rarity in RarityFactors.Where(x => x.Key > 0).OrderByDescending(x => x.Key))
         {
+            //Check if items of this rarity should be dropped
             if (!(rarity.Value + luck > rng.NextDouble() * 100))
-                continue;
+                continue; //Skip to next rarity
 
+            //Try dropping an item of the given rarity based on their drop chances
+            //TODO: Maybe sort by smallest rarity first?!
             foreach (T item in items.Where(x => x.Rarity == rarity.Key))
             {
                 if (item.DropChance > rng.NextDouble() * 100)
