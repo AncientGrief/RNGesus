@@ -12,14 +12,14 @@
 It allows you to define a pool of items (class instances), each with a given rarity and drop chance and then pick one at random.</Description>
         <Copyright>https://github.com/AncientGrief/RNGesus</Copyright>
         <PackageProjectUrl>https://github.com/AncientGrief/RNGesus</PackageProjectUrl>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <FileVersion>1.0.2</FileVersion>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <FileVersion>1.0.3</FileVersion>
         <PackageIcon>nugeticon.png</PackageIcon>
         <RepositoryUrl>https://github.com/AncientGrief/RNGesus</RepositoryUrl>
         <PackageTags>drop chance, rng, drop</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RootNamespace>RnJesus</RootNamespace>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageVersion>1.0.3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
