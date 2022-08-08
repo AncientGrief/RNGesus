@@ -35,7 +35,6 @@ public class RNGesus<T> where T : IDroppable
         if (commonItems.Count == 0)
             throw new ArgumentException(
                 "No droppable found with Rarity=0. Please ensure there is at least one object with Rarity 0 to be used as a fallback.");
-
     }
 
     /// <summary>
@@ -44,6 +43,7 @@ public class RNGesus<T> where T : IDroppable
     /// </summary>
     /// <param name="luck">Optional luck, which will add to the drop chance for each rarity</param>
     /// <returns>A random item</returns>
+    /// <exception cref="NullReferenceException">If there's no rarity with 0</exception>
     public T Next(double? luck = 0d)
     {
         //Try dropping a non common item. Rarity = 0 = 100d is common, so skip it
@@ -65,6 +65,12 @@ public class RNGesus<T> where T : IDroppable
         }
 
         //If no rare item was found, drop a common one
-        return items.Where(x => x.Rarity == 0).ElementAt(rng.Next(0, commonItems.Count));
+        T? defaultItem = items.Where(x => x.Rarity == 0).ElementAt(rng.Next(0, commonItems.Count));
+
+        if (defaultItem == null)
+            throw new NullReferenceException(
+                "Couldn't find a fallback item. Make sure there's at least on item with rarity 0");
+        
+        return defaultItem;
     }
 }
