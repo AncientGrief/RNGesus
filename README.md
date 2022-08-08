@@ -14,7 +14,7 @@ RNGesus tries to pick an item from the pool with a rarity >= 1. If no drop was g
 Let's assume you have the following rarities[^1]:
 
 | Rarity | Integer value |
-| ------ | ------------- |
+|--------|---------------|
 | Common | 0             |
 | Rare   | 1             |
 | Epic   | 2             |
@@ -26,7 +26,7 @@ Let's assume you have the following rarities[^1]:
 For each rarity type there are X items, each with a specific drop chance:
 
 | Item name  | Rarity | Drop chance |
-| ---------- | ------ | ----------- |
+|------------|--------|-------------|
 | Sword      | Common | ignored     |
 | Axe        | Common | ignored     |
 | Rare Sword | Rare   | 50          |
@@ -37,16 +37,10 @@ For each rarity type there are X items, each with a specific drop chance:
 RNGesus will now check the drops in the following order:
 
 1. Check if next drop should be Epic
-
 2. If so, check each Epic item's drop chance against RNG => If lucky, return item
-
 3. If nothing found, check if next drop should be Rare
-
 4. If so, check each Rare item's drop chance against RNG => If lucky, return item
-
 5. No special drop done, so choose one Common item (fallback) and return it. RNGesus will not look at it's dropchance and relies purely on `System.Runtime.Random` 
-
-   
 
 ## Usage
 
@@ -93,7 +87,30 @@ var droppedItem = rng.Next();
 
 That's it 🙃 See the ConsoleTest Project in the repository for a more complete example.
 
+## Rarity Factors
 
+RNGesus generates a default factor for each rarity there is. 
+This factor is the overall chance of items with this rarity get dropped.
+
+You can overwrite the factors like this:
+
+```
+rngesus.RarityFactors[0] = 20;
+rngesus.RarityFactors[1] = 10;
+rngesus.RarityFactors[2] = 0.01;
+//...
+```
+
+The default values are `50d / x` where x is the rarity. Rarity 0 defaults to 100d and should not be changed, otherwise you may run into a NullReferenceException.
+
+| Rarity | Default factor |
+|--------|----------------|
+| 0      | 100            | 
+| 1      | 50             | 
+| 2      | 25             | 
+| 3      | 16.666         | 
+| 4      | 12.5           | 
+| ...    | ...            | 
 
 ## Luck
 
@@ -102,8 +119,6 @@ The `RNGesus.Next()` method takes an optional `double` parameter called `luck`. 
 ```csharp
 var droppedItem = rng.Next(10d);
 ```
-
-
 
 ## Example with100,000 drops
 
@@ -116,7 +131,7 @@ The ConsoleTest programm generates 100,000 drops and these are the results of on
 - Legendary => 0.01
 
 | Rarity    | Drop Count |
-| --------- | ---------- |
+|-----------|------------|
 | Common    | 39781      |
 | Uncommon  | 47643      |
 | Rare      | 10179      |
@@ -124,26 +139,25 @@ The ConsoleTest programm generates 100,000 drops and these are the results of on
 | Legendary | 5          |
 
 
-
-| Item                | Drop Count          |
-|---------|---------|
-| Common I            | 8146               |
-| Common II           | 7879               |
-| Common III          | 7898               |
-| Common IV           | 7896               |
-| Common V            | 7962               |
-| Uncommon I          | 26410              |
-| Uncommon II         | 17618              |
-| Uncommon III        | 3615               |
-| Rare I              | 6329               |
-| Rare II             | 2932               |
-| Rare III            | 918                 |
-| Epic I              | 1456               |
-| Epic II             | 715                 |
-| Epic III            | 220                 |
-| Epic IV             | 1                   |
-| Legendary I         | 3                   |
-| Legendary II        | 2                   |
-| Legendary III       | 0                   |
-| Legendary IV        | 0                   |
+| Item          | Drop Count    |
+|---------------|---------------|
+| Common I      | 8146          |
+| Common II     | 7879          |
+| Common III    | 7898          |
+| Common IV     | 7896          |
+| Common V      | 7962          |
+| Uncommon I    | 26410         |
+| Uncommon II   | 17618         |
+| Uncommon III  | 3615          |
+| Rare I        | 6329          |
+| Rare II       | 2932          |
+| Rare III      | 918           |
+| Epic I        | 1456          |
+| Epic II       | 715           |
+| Epic III      | 220           |
+| Epic IV       | 1             |
+| Legendary I   | 3             |
+| Legendary II  | 2             |
+| Legendary III | 0             |
+| Legendary IV  | 0             |
 
