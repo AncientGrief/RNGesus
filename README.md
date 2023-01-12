@@ -160,4 +160,3 @@ The ConsoleTest programm generates 100,000 drops and these are the results of on
 | Legendary II  | 2             |
 | Legendary III | 0             |
 | Legendary IV  | 0             |
-
